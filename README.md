@@ -19,8 +19,8 @@ This simulation demonstrates *why* a simple receiver fails in this environment a
 
 1.  **Clone the repository:**
     ```bash
-    git clone [your-repo-link]
-    cd [your-repo-directory]
+    git clone [https://github.com/alexaryan7/ECC-507-Project.git]
+    cd [ECC-507-Project]
     ```
 
 2.  **Install dependencies:**
