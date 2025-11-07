@@ -31,7 +31,7 @@ This simulation demonstrates *why* a simple receiver fails in this environment a
 
 3.  **Run the simulation:**
     ```bash
-    python thz_simulation.py
+    python Performance Analysis of an Adaptive OFDM Receiver vs. a Simple Matched Filter in a THz Molecular Absorption Channel.py
     ```
 
 The script will:
@@ -66,7 +66,7 @@ This is the key result of the project. It plots the Bit Error Rate (BER) against
 
 ## 📁 Repository Contents
 
-* `thz_simulation.py`: The main Python simulation script.
+* `Performance Analysis of an Adaptive OFDM Receiver vs. a Simple Matched Filter in a THz Molecular Absorption Channel.py`: The main Python simulation script.
 * `report.tex` / `report.pdf`: The 2-page IEEE-formatted LaTeX report.
 * `thz_channel_response.png`: Output plot of the channel model.
 * `thz_ber_comparison.png`: Output plot of the BER comparison.
