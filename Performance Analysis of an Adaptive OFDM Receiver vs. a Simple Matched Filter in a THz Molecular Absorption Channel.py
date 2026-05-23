@@ -93,7 +93,6 @@ for snr_db in SNR_DB_RANGE:
 
     for _ in range(N_SYMBOLS_PER_SNR):
         
-        # --- System 1: Naive SC ---
         sc_bits = np.random.randint(0, 2, N_SUB_CARRIERS * BITS_PER_SYMBOL)
         sc_symbols = qpsk_modulate(sc_bits)
         sc_symbols_normalized = sc_symbols / np.sqrt(2) 
@@ -103,21 +102,17 @@ for snr_db in SNR_DB_RANGE:
         received_sc_noisy = received_sc_symbols + noise
         demod_sc_bits = qpsk_demodulate(received_sc_noisy * np.sqrt(2))
         
-        # Errors
         total_errors_sc += np.sum(sc_bits != demod_sc_bits)
         total_bits_sc += len(sc_bits)
 
         
-        # --- System 2: Adaptive OFDM ---
         ofdm_bits = np.random.randint(0, 2, n_good_carriers * BITS_PER_SYMBOL)
         ofdm_symbols = qpsk_modulate(ofdm_bits)
         ofdm_symbols_normalized = ofdm_symbols / np.sqrt(2)
         
-        # Load
         full_ofdm_symbol = np.zeros(N_SUB_CARRIERS, dtype=complex)
         full_ofdm_symbol[good_carriers] = ofdm_symbols_normalized
         
-        # Channel
         received_ofdm_symbols_freq = full_ofdm_symbol * thz_channel
         noise = (np.random.normal(0, noise_std_dev, N_SUB_CARRIERS) + 
                  1j * np.random.normal(0, noise_std_dev, N_SUB_CARRIERS))
